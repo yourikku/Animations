@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация 10 - Пофрагментная отрисовка подписи</title>
+    <link rel="stylesheet" href="css/animation10.css">
+</head>
+<body>
+    <a href="index.html" class="back-link">← Назад</a>
+    
+    <div class="animation-container">
+        <h1 class="animation-title">Анимация 10: Пофрагментная отрисовка подписи</h1>
+        
+        <div class="stage">
+            <div class="signature-container">
+                <svg class="signature" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Буква М -->
+                    <path class="letter letter-1" d="M 30,50 L 30,120 M 30,50 L 50,90 M 50,90 L 70,50 M 70,50 L 70,120" 
+                          stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Буква а -->
+                    <path class="letter letter-2" d="M 100,80 Q 90,65 105,65 Q 120,65 120,80 L 120,120 M 120,95 Q 120,80 105,80 Q 90,80 90,100" 
+                          stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Буква р -->
+                    <path class="letter letter-3" d="M 145,65 L 145,140 M 145,70 Q 145,65 155,65 Q 170,65 170,82 Q 170,95 155,95 Q 145,95 145,95" 
+                          stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Линия подписи -->
+                    <path class="underline" d="M 20,150 L 180,150" 
+                          stroke="#667eea" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- Завершающий росчерк -->
+                    <path class="flourish" d="M 180,150 Q 200,140 220,150 Q 240,160 260,145" 
+                          stroke="#667eea" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Описание анимации:</h2>
+            <p>
+                <strong>Ход анимации:</strong> Пофрагментно отрисовывается каждый символ в течении заданного времени. 
+                Каждый фрагмент заранее отрисован на сплайне.
+            </p>
+            <p>
+                Анимация происходит методом смещения позиции по фрагментам на сплайне.
+                Сначала отрисовываются буквы, затем подчеркивающая линия и завершающий росчерк.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

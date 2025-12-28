@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #56ab2f;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-link:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.animation-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.animation-title {
+    color: white;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.stage {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sugar-cube-2d {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sugar-cube-2d h2 {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+}
+
+.ant {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+
+.ant-1 {
+    top: 50px;
+    left: 50px;
+    animation: move-ant-corner 8s linear infinite;
+}
+
+.ant-2 {
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+    animation: move-ant-side 6s linear infinite;
+}
+
+@keyframes move-ant-corner {
+    0% {
+        top: 50px;
+        left: 50px;
+        transform: rotate(-45deg);
+    }
+    100% {
+        top: 390px;
+        left: 490px;
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes move-ant-side {
+    0% {
+        left: 50px;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    100% {
+        left: 490px;
+        transform: translateY(-50%) rotate(0deg);
+    }
+}
+
+.description {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.description h2 {
+    color: #56ab2f;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.description p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.description strong {
+    color: #56ab2f;
+}

@@ -1,0 +1,464 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #434343 0%, #000000 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #e23636;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-link:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(226, 54, 54, 0.4);
+}
+
+.animation-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.animation-title {
+    color: #e23636;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.stage {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.heroes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.hero {
+    position: relative;
+    width: 200px;
+    height: 300px;
+}
+
+.hero-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Общие стили для частей тела */
+.head {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.body {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    border-radius: 10px;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arm {
+    position: absolute;
+    width: 15px;
+    height: 60px;
+    border-radius: 7px;
+    top: 65px;
+}
+
+.left-arm {
+    left: 40px;
+    transform-origin: top center;
+}
+
+.right-arm {
+    right: 40px;
+    transform-origin: top center;
+}
+
+.leg {
+    position: absolute;
+    width: 20px;
+    height: 70px;
+    border-radius: 10px;
+    top: 135px;
+}
+
+.left-leg {
+    left: 70px;
+}
+
+.right-leg {
+    right: 70px;
+}
+
+/* Железный человек */
+.iron-man .head {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.iron-man .body {
+    background: linear-gradient(135deg, #DC143C, #8B0000);
+}
+
+.iron-man .arm, .iron-man .leg {
+    background: linear-gradient(135deg, #DC143C, #8B0000);
+}
+
+.iron-man .reactor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00BFFF, #0080FF);
+    border-radius: 50%;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 30px #00BFFF;
+    animation: reactor-pulse 1s ease-in-out infinite;
+}
+
+@keyframes reactor-pulse {
+    0%, 100% {
+        box-shadow: 0 0 30px #00BFFF;
+    }
+    50% {
+        box-shadow: 0 0 50px #00BFFF;
+    }
+}
+
+.iron-man .right-arm {
+    animation: iron-man-arm-right 2s ease-in-out infinite;
+}
+
+@keyframes iron-man-arm-right {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-90deg);
+    }
+}
+
+.blast {
+    position: absolute;
+    width: 100px;
+    height: 6px;
+    background: linear-gradient(90deg, #FFD700, #FF6347, transparent);
+    border-radius: 3px;
+    opacity: 0;
+    animation: blast-fire 2s ease-in-out infinite;
+    box-shadow: 0 0 10px #FFD700;
+}
+
+.blast-left {
+    display: none;
+}
+
+.blast-right {
+    top: 65px;
+    left: 210px;
+    transform-origin: left center;
+}
+
+@keyframes blast-fire {
+    0%, 40% {
+        opacity: 0;
+        width: 0;
+    }
+    50%, 90% {
+        opacity: 1;
+        width: 100px;
+    }
+    100% {
+        opacity: 0;
+        width: 120px;
+    }
+}
+
+/* Капитан Америка */
+.captain-america .head {
+    background: linear-gradient(135deg, #FFC0CB, #FFB6C1);
+}
+
+.captain-america .body {
+    background: linear-gradient(135deg, #4169E1, #0000CD);
+    position: relative;
+}
+
+.captain-america .body::after {
+    content: '★';
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.captain-america .arm, .captain-america .leg {
+    background: linear-gradient(135deg, #4169E1, #0000CD);
+}
+
+.shield {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, white 20%, #DC143C 20%, #DC143C 40%, white 40%, white 60%, #4169E1 60%);
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: shield-throw 3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+}
+
+@keyframes shield-throw {
+    0%, 100% {
+        left: 75%;
+        top: 80px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        left: 150%;
+        top: 60px;
+        transform: translateX(-50%) rotate(720deg);
+    }
+}
+
+/* Халк */
+.hulk .head {
+    background: linear-gradient(135deg, #90EE90, #228B22);
+}
+
+.hulk .body {
+    background: linear-gradient(135deg, #8B008B, #4B0082);
+    width: 70px;
+    height: 90px;
+}
+
+.hulk .arm {
+    background: linear-gradient(135deg, #90EE90, #228B22);
+    width: 20px;
+    height: 65px;
+}
+
+.hulk .leg {
+    background: linear-gradient(135deg, #8B008B, #4B0082);
+}
+
+.hulk .left-arm, .hulk .right-arm {
+    animation: hulk-smash 3s ease-in-out infinite;
+}
+
+@keyframes hulk-smash {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(-140deg);
+    }
+    35%, 70% {
+        transform: rotate(0deg);
+    }
+}
+
+.smash-effect {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #90EE90;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: smash-wave 3s ease-out infinite;
+}
+
+@keyframes smash-wave {
+    0%, 34% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+    35% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    70% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+}
+
+/* Тор */
+.thor .head {
+    background: linear-gradient(135deg, #FFC0CB, #FFB6C1);
+}
+
+.thor .body {
+    background: linear-gradient(135deg, #C0C0C0, #696969);
+}
+
+.thor .arm, .thor .leg {
+    background: linear-gradient(135deg, #4169E1, #0000CD);
+}
+
+.thor .cape {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    background: linear-gradient(135deg, #DC143C, #8B0000);
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 40px 40px;
+    z-index: -1;
+    animation: cape-flow 2s ease-in-out infinite;
+}
+
+@keyframes cape-flow {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+}
+
+.hammer {
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: linear-gradient(135deg, #8B4513, #654321);
+    border-radius: 3px;
+    top: 50px;
+    right: 10px;
+    animation: hammer-swing 3s ease-in-out infinite;
+}
+
+.hammer::before {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 25px;
+    background: linear-gradient(135deg, #A9A9A9, #696969);
+    top: -5px;
+    left: -10px;
+    border-radius: 5px;
+}
+
+@keyframes hammer-swing {
+    0%, 100% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+.lightning {
+    position: absolute;
+    width: 4px;
+    height: 150px;
+    background: linear-gradient(180deg, #FFFF00, transparent);
+    top: -100px;
+    right: 17px;
+    box-shadow: 0 0 20px #FFFF00;
+    opacity: 0;
+    animation: lightning-strike 3s ease-in-out infinite;
+}
+
+@keyframes lightning-strike {
+    0%, 45% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    55%, 100% {
+        opacity: 0;
+    }
+}
+
+.description {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.description h2 {
+    color: #e23636;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.description p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.description li {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.description li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+}
+
+.description strong {
+    color: #e23636;
+}
